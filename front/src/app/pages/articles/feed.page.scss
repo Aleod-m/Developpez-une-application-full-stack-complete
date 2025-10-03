@@ -1,0 +1,17 @@
+.controls {
+  display: flex;
+  padding: 1em;
+}
+.spacer { flex: 1 1 auto; }
+.articles {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 3em;
+  gap: 1em;
+}
+
+@media only screen and (max-width: 700px) {
+  .articles {
+    grid-template-columns: 1fr;
+  }
+}

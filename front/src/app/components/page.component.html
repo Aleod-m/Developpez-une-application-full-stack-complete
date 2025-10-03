@@ -1,0 +1,35 @@
+<mat-drawer-container class="page-content">
+  <mat-toolbar id="nav-bar">
+    <img class="logo" src="/assets/logo_p6.png" alt="logo"/>
+    <div class="nav-content">
+      <button mat-button (click)="logout()" color="warn"> Se deconnecter </button>
+      <button mat-button [routerLink]="['/feed']"> Articles </button>
+      <button mat-button [routerLink]="['/topics']"> Theme </button>
+      <button mat-mini-fab color="primary" class="person" [routerLink]="['/profile']">
+        <mat-icon>person_outline</mat-icon>
+      </button>
+    </div>
+    <button mat-icon-button class="menu" aria-label="Example icon-button with menu icon" (click)="sidebar.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-drawer #sidebar class="side-nav" mode="over" position="end">
+    <div class="nav-content">
+      <button mat-button (click)="logout()" color="warn">
+        <label> Se deconnecter </label>
+      </button>
+      <button mat-button [routerLink]="['/feed']">
+        <label> Articles </label>
+      </button>
+      <button mat-button [routerLink]="['/topics']">
+        <label> Theme </label>
+      </button>
+      <button mat-mini-fab color="primary" class="person" [routerLink]="['/profile']">
+        <mat-icon>person_outline</mat-icon>
+      </button>
+    </div>
+  </mat-drawer>
+
+  <ng-content></ng-content>
+</mat-drawer-container>

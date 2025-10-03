@@ -1,0 +1,11 @@
+<mat-card>
+  <mat-card-title> {{ topic.label}} </mat-card-title>
+
+  <mat-card-content> {{ topic.description }} </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" [disabled]="subscribed" (click)="onClick()">
+      <ng-content></ng-content>
+    </button>
+  </mat-card-actions>
+</mat-card>

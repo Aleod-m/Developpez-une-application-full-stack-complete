@@ -1,0 +1,39 @@
+<page-container>
+  <div class="content">
+
+    <button mat-icon-button [routerLink]="['/feed']">
+      <mat-icon class="back">arrow_back</mat-icon>
+    </button>
+
+    <div id="article-contents">
+
+      <h1> Creer un nouvel article</h1>
+
+      <form [formGroup]="form" (ngSubmit)="submit()">
+
+        <mat-form-field appearance="outline" color="primary">
+          <mat-label>Selectioner un theme</mat-label>
+          <mat-select required formControlName="topic_id">
+            <mat-option value="" disabled selected></mat-option>
+            <mat-option *ngFor="let topic of (topics | async)" [value]="topic.id">{{ topic.label }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" color="primary">
+          <mat-label>Titre de l'article</mat-label>
+          <input matInput formControlName="title">
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" color="primary">
+          <mat-label>Contenu de l'article</mat-label>
+          <textarea matInput cdkTextareaAutosize formControlName="content"></textarea>
+        </mat-form-field>
+
+        <button mat-flat-button color="primary" [disabled]="form.invalid" type="submit">Creer</button>
+
+      </form>
+
+    </div>
+
+  </div>
+</page-container>

@@ -1,0 +1,36 @@
+<page-container>
+  <div class="content">
+    <span mat-icon-button [routerLink]="['/feed']">
+      <mat-icon class="back">arrow_back</mat-icon>
+    </span>
+    <div id="article-contents">
+      <ng-container *ngIf="(article$ | async) as article">
+        <h1> {{article.title}} </h1>
+        <h2> {{topic_label$ | async}} </h2>
+        <h3> Écrit le {{article.created_at | date}} par {{author_name$ | async}}.</h3>
+        <p> {{article.content}} </p>
+      </ng-container>
+
+      <hr/>
+
+      <h2> Commentaires </h2>
+      <div class="article-comments">
+
+        <article-comment *ngFor="let comment of comments$ | async" [comment]="comment">
+        </article-comment>
+
+        <form class="row" (ngSubmit)="submit()" [formGroup]="form" #formDirective="ngForm" >
+          <mat-form-field class="write-comment" appearance="outline">
+            <mat-label>Écrivez ici votre commentaire</mat-label>
+            <textarea matInput cdkTextareaAutosize formControlName="comment"></textarea>
+            <mat-error *ngIf="commentIsInvalid()">{{ getCommentErrors()}}</mat-error>
+          </mat-form-field>
+          <button type="submit" mat-mini-fab color="primary" class="person" [disabled]="form.invalid">
+            <mat-icon>send</mat-icon>
+          </button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</page-container>

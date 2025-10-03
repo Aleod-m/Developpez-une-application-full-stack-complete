@@ -1,0 +1,12 @@
+<page-container>
+  <div class="topics">
+      <topic-card *ngFor="let sub of (subscriptions$ | async)"
+        [topic]="sub.topic"
+        [subscribed]="sub.subscribed"
+        (onButton)="onSubscribe($event)"
+      >
+        <label *ngIf="!sub.subscribed; else elseBlock">S'abonner</label>
+        <ng-template #elseBlock>Deja abonne</ng-template>
+      </topic-card>
+  </div>
+</page-container>

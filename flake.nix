@@ -31,15 +31,14 @@
           enable = true;
           package = pkgs.mysql84;
           initialDatabases = [ 
-            { name = "mddapi"; schema = ./ressources/sql/prod.sql; } 
-            { name = "mddapi-test"; schema = ./ressources/sql/test.sql; } 
+            { name = "mmdapi"; schema = ./resources/sql/prod.sql; } 
           ];
           ensureUsers = [ 
             {
                name = "db-admin";
                password = "123456"; 
                ensurePermissions = {
-                 "test.*" = "ALL PRIVILEGES";
+                 "mmdapi.*" = "ALL PRIVILEGES";
                };
             } 
           ];

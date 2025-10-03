@@ -1,0 +1,17 @@
+<page-container>
+  <div class="controls">
+    <a mat-flat-button color="primary" [routerLink]="['/articles/create']">
+      Cree un article
+    </a>
+    <span class="spacer"></span>
+    <button mat-button (click)="toggleSort()">
+      <label>Trier par</label>
+      <mat-icon *ngIf="sortAsc; else up">arrow_downward</mat-icon>
+      <ng-template #up><mat-icon>arrow_upward</mat-icon></ng-template>
+    </button>
+  </div>
+  <div class="articles">
+      <article-card *ngFor="let article of articles" [article]="article">
+      </article-card>
+  </div>
+</page-container>
