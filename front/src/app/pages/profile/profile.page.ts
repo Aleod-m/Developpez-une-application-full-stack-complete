@@ -61,8 +61,9 @@ export class ProfilePage implements OnInit {
         username: fval.username || undefined,
         email: fval.email || undefined,
         subscription_ids: currentUser?.subscription_ids || [],
+        password: fval.password || undefined,
       };
-      this.usersSrvc.update(currentUser!.id, user);
+      this.usersSrvc.update(currentUser!.id, user).subscribe();
     }
   }
 
@@ -79,7 +80,6 @@ export class ProfilePage implements OnInit {
 
   getPasswordError() {
     const control = this.form.controls.password;
-    console.log()
     if (control.hasError('required')) {
       return "Le mot de passe est requis.";
     } else if (control.hasError('minlength')) {
@@ -113,7 +113,6 @@ export class ProfilePage implements OnInit {
         })
       }),
     ).subscribe();
-    console.log("test")
     this.subscriptionSrvc.getSubsciptionForUser();
     this.subscriptions$ = this.subscriptionSrvc.subscriptions$;
   }

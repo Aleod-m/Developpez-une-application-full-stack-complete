@@ -36,7 +36,7 @@ class UserController extends AbstractController {
 
 	@PutMapping("{identifier}")
 	ResponseEntity<UserDTO> update(@PathVariable Long identifier, @Valid @RequestBody UserDTO userUpdate) {
-		logger.info("id: {}", identifier);
+		logger.info("Update user with id: {}", identifier);
 		return ResponseEntity.ok(srvc.update(identifier, userUpdate));
 	}
 
