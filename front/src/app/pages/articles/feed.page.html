@@ -6,8 +6,8 @@
     <span class="spacer"></span>
     <button mat-button (click)="toggleSort()">
       <label>Trier par</label>
-      <mat-icon *ngIf="sortAsc; else up">arrow_downward</mat-icon>
-      <ng-template #up><mat-icon>arrow_upward</mat-icon></ng-template>
+      <mat-icon *ngIf="sortAsc; else down">arrow_upward</mat-icon>
+      <ng-template #down><mat-icon>arrow_downward</mat-icon></ng-template>
     </button>
   </div>
   <div class="articles">

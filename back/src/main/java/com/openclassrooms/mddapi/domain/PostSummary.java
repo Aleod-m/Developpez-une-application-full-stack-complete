@@ -20,6 +20,10 @@ public class PostSummary {
 	String authorName;
 
 	@NonNull
+	@JsonProperty("topic_id")
+	Long TopicId;
+
+	@NonNull
 	@JsonProperty("topic_name")
 	String topicName;
 
